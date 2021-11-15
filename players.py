@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import numpy as np 
 
 
@@ -20,6 +21,7 @@ class Player:
         self.cards = []
         self.wagers = []
         self.outcomes = []
+        self.cash_history = [initial_amount]
     
     def add_dealer_card(self, dealer_card):
         self.dealer_card = dealer_card
@@ -39,6 +41,10 @@ class Player:
 
     def double_down(self):
         pass
+
+
+
+
 
 
 if __name__ == "__main__":

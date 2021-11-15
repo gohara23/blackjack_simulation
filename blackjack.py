@@ -1,6 +1,7 @@
 import numpy as np
 import players
 import cash_managment
+import strategies
 from dataclasses import dataclass
 
 
@@ -81,8 +82,15 @@ class Card:
 if __name__ == "__main__":
     game = BlackjackGame()
     game.create_shoe()
-    # player = players.Player(strategy, cash_managment.Martingale(25))
-    print(game.shoe.pop())
+    player = players.Player(strategies.Optimal(), cash_managment.Martingale(25))
+    game.add_player(player)
+    # print(game.shoe.pop())
+    game.deal_turn()
+
+    print(game.dealer.cards)
+    for player in game.players:
+        print(player.cards)
+        print(player.dealer_card)
 
 
     
